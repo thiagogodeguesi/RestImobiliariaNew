@@ -60,6 +60,23 @@ namespace RestImobiliaria.Controllers
             //----
             return listCorretor;
         }
+
+        //push 
+        public void Put(int id, [FromBody]string value)
+        {
+            var listCorretor = new List<Corretor>();
+            //----
+            for (int i = 0; i < 10; i++)
+            {
+                var xCorretor = new Corretor
+                {
+                    Id = id
+                    ,
+                    Nome = value
+                };
+                listCorretor.Add(xCorretor);
+            }
+        }
         /*
         // GET: Teste/6
         public Tes  Get(int id)
