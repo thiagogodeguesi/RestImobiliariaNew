@@ -28,13 +28,23 @@ namespace RestImobiliaria.Controllers
 
                 return "Usuário cadastrado com sucesso!" + vRet;
         }
-
+        /*
         [AcceptVerbs("GET")]
         [Route("FullCorretor")]
         public List<Corretor> retCorretor()
         {
             List<Corretor> listCorretores = new Corretor().listaCorretores();
             return listCorretores;
+        }
+
+        [AcceptVerbs("GET")]
+        [Route("loginUser/{email:string}{senha:string}")]
+        public bool retCorretorId(string email, string senha)
+        {
+            Corretor RoCorretor = new Corretor();
+            bool xcont = new Corretor().loginCorretor(email, senha, out RoCorretor);
+
+            return xcont;
         }
 
         [AcceptVerbs("GET")]
@@ -54,7 +64,7 @@ namespace RestImobiliaria.Controllers
 
             return "Usuário cadastrado com sucesso!" + vRet;
         }
-
+        */
         /// <summary>
         /// **********************
         /// **** FIM CORRETOR ****
