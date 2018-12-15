@@ -236,7 +236,6 @@ namespace RestImobiliaria.Models
         public List<Corretor> busaCorretores()
         {
             List<Corretor> listCorretor = new List<Corretor>();
-            Corretor nCorretor = new Corretor();
             //---
             try
             {
@@ -250,6 +249,8 @@ namespace RestImobiliaria.Models
                             MySqlDataReader MSDataReder = cmd.ExecuteReader();
                             while (MSDataReder.Read())
                             {
+                                Corretor nCorretor = new Corretor();
+
                                 nCorretor.Id = Convert.ToInt32(MSDataReder["ID"].ToString());
                                 nCorretor.Nome = MSDataReder["NOME"].ToString();
                                 nCorretor.Cpf = MSDataReder["CPF"].ToString();
@@ -288,13 +289,13 @@ namespace RestImobiliaria.Models
                     conn.Open();
                     using (MySqlCommand cmd = new MySqlCommand(" UPDATE CORRETOR SET "
                                                               + " NOME      = '" + xCorreor.Nome + "'"
-                                                              + " CPF       = '" + xCorreor.Cpf + "'"
-                                                              + " CRECI     = '" + xCorreor.Cpf + "'"
-                                                              + " UF_CRECI  = '" + xCorreor.Creci + "'"
-                                                              + " TELEFONE  = '" + xCorreor.Telefone + "'"
-                                                              //+ " EMAIL     = '" + xCorreor.Email + "'"
-                                                              + " VISIVEL   = '" + xCorreor.Visivel + "'"
-                                                              + " SENHA     = '" + xCorreor.Senha + "'"
+                                                              + ", CPF       = '" + xCorreor.Cpf + "'"
+                                                              + ", CRECI     = '" + xCorreor.Creci + "'"
+                                                              + ", UF_CRECI  = '" + xCorreor.Ufcreci + "'"
+                                                              + ", TELEFONE  = '" + xCorreor.Telefone + "'"
+                                                              //+ ", EMAIL     = '" + xCorreor.Email + "'"
+                                                              + ", VISIVEL   = '" + xCorreor.Visivel + "'"
+                                                              + ", SENHA     = '" + xCorreor.Senha + "'"
                                                               + " WHERE ID  = '" + xId + "'"
                                                                , conn))
                     {
@@ -322,16 +323,16 @@ namespace RestImobiliaria.Models
                 using (MySqlConnection conn = new MySqlConnection("Persist Security info = False; server = mysql08-farm76.kinghost.net; database   = rastreiaminhae; uid = rastreiaminhae; pwd = Godeguesi18"))
                 {
                     conn.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(" INSERT INTO CORRETOR (ID ,NOME ,CPF ,CRECI ,UF_CRECI ,TELEFONE ,EMAIL ,VISIVEL, SENHA) VALUES ( "
-                                                              + " '" + xCorreor.Id + "'"
+                    using (MySqlCommand cmd = new MySqlCommand(" INSERT INTO CORRETOR (NOME ,CPF ,CRECI ,UF_CRECI ,TELEFONE ,EMAIL ,SENHA) VALUES ( "
+                                                              //+ " '" + xCorreor.Id + "'"
                                                               + " '" + xCorreor.Nome + "'"
-                                                              + " '" + xCorreor.Cpf + "'"
-                                                              + " '" + xCorreor.Cpf + "'"
-                                                              + " '" + xCorreor.Creci + "'"
-                                                              + " '" + xCorreor.Telefone + "'"
-                                                              + "'" + xCorreor.Email + "'"
-                                                              + "'" + xCorreor.Visivel + "'"
-                                                              + "'" + xCorreor.Senha + "'"
+                                                              + ", '" + xCorreor.Cpf + "'"
+                                                              + ", '" + xCorreor.Creci + "'"
+                                                              + ", '" + xCorreor.Ufcreci + "'"
+                                                              + ", '" + xCorreor.Telefone + "'"
+                                                              + ", '" + xCorreor.Email + "'"
+                                                              //+ ", '" + xCorreor.Visivel + "'"
+                                                              + ", '" + xCorreor.Senha + "'"
                                                               + ")" , conn))
                     {
                         try
