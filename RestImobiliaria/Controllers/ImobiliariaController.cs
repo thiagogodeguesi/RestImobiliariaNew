@@ -42,13 +42,14 @@ namespace RestImobiliaria.Controllers
             List<Corretor> listCorretores = new Corretor().listaCorretores();
             return listCorretores;
         }
-        [AcceptVerbs("GET")]
+        [AcceptVerbs("POST")]
         [Route("loginUser")]
-        public bool retCorretorId(string email, string senha)
+        public bool retCorretorId(string email, string senha, out int xID)
         {
             Corretor RoCorretor = new Corretor();
             bool xcont = new Corretor().loginCorretor(email, senha, out RoCorretor);
 
+            xID = RoCorretor.Id;
             return xcont;
         }
 
@@ -215,27 +216,27 @@ namespace RestImobiliaria.Controllers
         /// **** FIM CLIENTE ****
         /// *********************
         /// </summary>
-
+        
         /// <summary>
         /// **************************
         /// **** INICIO CADASTROS ****
         /// **************************
         /// </summary>
-
+        
         [AcceptVerbs("GET")]
-        [Route("status}")]
-        public List<Cadastros.Status> retStatus()
+        [Route("Status")]
+        public List<Status> retStatus()
         {
-            List<Cadastros.Status> listStatus = new List<Cadastros.Status>();//.listaCorretores();
+            List<Status> listStatus = new List<Status>();//.listaCorretores();
             if (listStatus == null)
             {
                 return null;
             }
             return null;
         }
-
+        
         [AcceptVerbs("GET")]
-        [Route("dormitorios}")]
+        [Route("dormitorios")]
         public List<Cadastros.Dormitorios> retDormitorios()
         {
             List<Cadastros.Dormitorios> listDormitorios = new List<Cadastros.Dormitorios>();//.listaCorretores();
@@ -245,9 +246,9 @@ namespace RestImobiliaria.Controllers
             }
             return null;
         }
-
+        
         [AcceptVerbs("GET")]
-        [Route("faixa-preco}")]
+        [Route("faixa-preco")]
         public List<Cadastros.FaixaPreco> retFaixaPreco()
         {
             List<Cadastros.FaixaPreco> listFaixaPreco = new List<Cadastros.FaixaPreco>();//.listaCorretores();
@@ -257,12 +258,108 @@ namespace RestImobiliaria.Controllers
             }
             return null;
         }
-        
+
+        [AcceptVerbs("GET")]
+        [Route("estagio-obra")]
+        public List<Cadastros.EstagioObra> retEstagioObra()
+        {
+            List<Cadastros.EstagioObra> listEstagioObra = new List<Cadastros.EstagioObra>();//.listaCorretores();
+            if (listEstagioObra == null)
+            {
+                return null;
+            }
+            return null;
+        }
+
+        [AcceptVerbs("GET")]
+        [Route("operacao")]
+        public List<Cadastros.Operacao> retOperacao()
+        {
+            List<Cadastros.Operacao> listOperacao = new List<Cadastros.Operacao>();//.listaCorretores();
+            if (listOperacao == null)
+            {
+                return null;
+            }
+            return null;
+        }
+
+        [AcceptVerbs("GET")]
+        [Route("metragem")]
+        public List<Cadastros.Metragem> retMetragem()
+        {
+            List<Cadastros.Metragem> listMetragem = new List<Cadastros.Metragem>();//.listaCorretores();
+            if (listMetragem == null)
+            {
+                return null;
+            }
+            return null;
+        }
+
+        [AcceptVerbs("GET")]
+        [Route("tipo-imagem")]
+        public List<Cadastros.TpImovel> retTpImovel()
+        {
+            List<Cadastros.TpImovel> listTpImovel = new List<Cadastros.TpImovel>();//.listaCorretores();
+            if (listTpImovel == null)
+            {
+                return null;
+            }
+            return null;
+        }
+
+        [AcceptVerbs("GET")]
+        [Route("tipo-operacao")]
+        public List<Cadastros.TpOperacao> retTpOperacao()
+        {
+            List<Cadastros.TpOperacao> listTpOperacao = new List<Cadastros.TpOperacao>();//.listaCorretores();
+            if (listTpOperacao == null)
+            {
+                return null;
+            }
+            return null;
+        }
+
+        [AcceptVerbs("GET")]
+        [Route("uf")]
+        public List<Cadastros.Uf> retUf()
+        {
+            List<Cadastros.Uf> listUf = new List<Cadastros.Uf>();//.listaCorretores();
+            if (listUf == null)
+            {
+                return null;
+            }
+            return null;
+        }
+
+        [AcceptVerbs("GET")]
+        [Route("vagas")]
+        public List<Cadastros.Vagas> retVagas()
+        {
+            List<Cadastros.Vagas> listVagas = new List<Cadastros.Vagas>();//.listaCorretores();
+            if (listVagas == null)
+            {
+                return null;
+            }
+            return null;
+        }
+
+        [AcceptVerbs("GET")]
+        [Route("zona-cidade")]
+        public List<Cadastros.ZonaCidade> retZonaCidade()
+        {
+            List<Cadastros.ZonaCidade> listZonaCidade = new List<Cadastros.ZonaCidade>();//.listaCorretores();
+            if (listZonaCidade == null)
+            {
+                return null;
+            }
+            return null;
+        }
         /// <summary>
         /// ***********************
         /// **** FIM CADASTROS ****
         /// ***********************
         /// </summary>
-        /// 
+        ///
+
     }
 }
